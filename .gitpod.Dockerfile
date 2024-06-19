@@ -9,9 +9,9 @@ RUN git clone https://github.com/flutter/flutter.git -b stable --depth 1
 ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:$PATH"
 
 # Pre-download development binaries
-RUN flutter precache
+RUN /bin/bash -c "source $HOME/.bashrc && flutter precache"
 
 # Enable Flutter web
-RUN flutter channel stable
-RUN flutter upgrade
-RUN flutter config --enable-web
+RUN /bin/bash -c "source $HOME/.bashrc && flutter channel stable"
+RUN /bin/bash -c "source $HOME/.bashrc && flutter upgrade"
+RUN /bin/bash -c "source $HOME/.bashrc && flutter config --enable-web"
